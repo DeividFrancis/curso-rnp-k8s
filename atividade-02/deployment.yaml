@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-color
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: http-color
+  template:
+    metadata:
+      labels:
+        name: http-color
+    spec:
+      containers:
+        - name: http-color
+          image: deividoliver/http-color:red
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "128Mi"

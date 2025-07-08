@@ -1,0 +1,52 @@
+# Tarefa 02
+
+Escopo da TAREFA
+
+
+- provisione um cluster com pelo menos 3 nós (kind, minikube, gcp...)
+- criar uma image qualquer , postar no docker.io
+- criar um deployment com pelo menos 4 replicas da sua app
+
+
+Entrega:
+- Printscreen de cada item acima no pdf
+- Se desejar, inclua no doc o link para o seu repositorio
+
+
+### Resolução
+
+
+Pré requisistos
+- [Docker Engine](https://docs.docker.com/engine/install/)
+- [Kubectl](https://kubernetes.io/pt-br/docs/tasks/tools/install-kubectl-linux/)
+
+
+- Instale o KIND
+https://kind.sigs.k8s.io/docs/user/quick-start/#installatio
+
+
+- Subir cluster a partir de uma configuração
+```sh
+kind create cluster --config cluster-config.yaml
+```
+
+- Criei uma imagem de Docker simples para uso em laboratórios de orquestração 
+    - Github: https://github.com/DeividFrancis/http-color
+    - Docker Registry: `deividoliver/http-color:red` 
+
+
+- Deploy da aplicação no kubernetes
+
+```sh
+kubectl apply -f deployment.yaml
+```
+
+- Listar pods
+
+```sh
+kubectl get po
+```
+
+- Ao executar os comandos deve ter algo parecido com isso:
+
+![alt text](images/img-01.png)
